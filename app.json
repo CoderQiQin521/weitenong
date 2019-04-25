@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/input/input",
     "pages/index/index",
+    "pages/input/input",
     "pages/bluetooth/bluetooth",
     "pages/delivery/delivery",
     "pages/nearby/nearby",
