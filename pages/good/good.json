@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "van-goods-action": "/dist/goods-action/index",
+    "van-goods-action-icon": "/dist/goods-action-icon/index",
+    "van-goods-action-button": "/dist/goods-action-button/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-cell": "/dist/cell/index",
+    "van-button": "/dist/button/index",
+    "van-action-sheet": "/dist/action-sheet/index",
+    "van-icon": "/dist/icon/index",
+    "van-rate": "/dist/rate/index",
+    "van-stepper": "/dist/stepper/index",
+    "assess": "/component/assess/assess"
+  }
+}

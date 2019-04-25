@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<view class="p30">
+  <view class="text-center">
+    <image mode="aspectFit" class="logo" src="{{logo}}"></image>
+  </view>
+  <view class="p30 text">
+    手指一点轻松查看寄件、取件包裹
+        还有好多优惠商品哦！
+  </view>
+  <van-button size="large" custom-class="save-btn" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">一键登录</van-button>
+</view>

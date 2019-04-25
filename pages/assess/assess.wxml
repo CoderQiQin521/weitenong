@@ -1,0 +1,2 @@
+<!--pages/assess/assess.wxml-->
+<assess wx:for="{{ resData }}" avatar="{{ item.image }}" nickname="{{ item.nickname }}" rate="{{ item.number }}" content="{{ item.content }}" time="{{ item.addtime }}"></assess>

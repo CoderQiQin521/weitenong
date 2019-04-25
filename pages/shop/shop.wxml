@@ -1,0 +1,33 @@
+<!--pages/shop/shop.wxml-->
+<view class="shopHd">
+<navigator class="search" url="/pages/shopSearch/shopSearch?shopid={{shopid}}"><van-icon name="search" />搜索</navigator>
+  <view class="top">
+    <image class="logo" mode="aspectFill" src="{{ resData.shop.logo }}"></image>
+    <view>
+      <view class="shopname">{{ resData.shop.name }}</view>
+      <view class="follow">关注数 {{ follow }}</view>
+    </view>
+  </view>
+  
+  <view wx:if="{{ collect === 0 }}" data-collect="{{ resData.shop.collec }}" class="attention" bind:tap="collect">关注</view>
+  <view wx:else class="attention" data-collect="{{ resData.shop.collec }}" bind:tap="collect">已关注</view>
+</view>
+
+<view class="panel">
+  <van-card
+    wx:for="{{ resData.goods }}"
+    price="{{ item.g_xprice }}"
+    desc="{{ item.desc }}"
+    title="{{ item.g_name }}"
+    thumb="{{ item.g_thumb }}"
+    thumb-mode="aspectFill"
+    thumb-link="/pages/good/good?gid={{ item.gid }}"
+  >
+    <view slot="tags">
+      <van-tag class="tag" wx:for="{{ item.tag }}" plain size="medium" type="danger">{{ item }}</van-tag>
+    </view>
+    <!-- <view slot="footer">
+      <van-button size="mini" data-shopid="{{ item.shopid }}" bind:click="toShop">进店</van-button>
+    </view> -->
+  </van-card>
+</view>

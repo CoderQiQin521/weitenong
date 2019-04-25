@@ -1,0 +1,28 @@
+/* pages/result/result.wxss */
+page {
+  background-color: #fff;
+}
+.res {
+
+}
+.icon {
+  margin: 100rpx 0;
+}
+
+.title {
+  margin-bottom: 30rpx;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.msg {
+  margin-bottom: 60rpx;
+  color: #8C8C8C;
+}
+
+.btn {
+  border: 0!important;
+  background-color: #F9DD4A!important;
+  color: #4D4D4D!important;
+}

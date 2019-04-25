@@ -1,0 +1,36 @@
+/* pages/activity/activity.wxss */
+.banner {
+  height: 340rpx;
+}
+.thumb {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.item {
+  width: 250rpx;
+  margin: 0 auto 30rpx;
+  /* text-align: center; */
+}
+
+.bd {
+  margin-top: 15rpx;
+}
+
+.title {
+  margin-bottom: 10rpx;
+  color: #323233;
+  font-weight: bold;
+}
+
+.price {
+  margin-right: 10rpx;
+  font-weight: bold;
+  color: #FF3824;
+}
+
+.oprice {
+  font-size: 10px;
+  color: #7d7e80;
+  text-decoration: line-through;
+}

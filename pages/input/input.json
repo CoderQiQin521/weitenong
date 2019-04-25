@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "识别码",
+  "usingComponents": {
+    "van-field": "/dist/field/index",
+    "van-button": "/dist/button/index"
+  }
+}

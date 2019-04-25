@@ -1,0 +1,15 @@
+/* pages/createOrder/createOrder.wxss */
+page {
+  background-color: #fff;
+}
+.info {
+  color: #8C8C8C;
+}
+.info .flex {
+  margin: 20rpx 0;
+}
+
+.xj {
+  font-weight: bold;
+  color: #f44;
+}

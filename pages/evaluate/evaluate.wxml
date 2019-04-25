@@ -1,0 +1,33 @@
+<!--pages/evaluate/evaluate.wxml-->
+<block wx:for="{{ resData.goods }}">
+  <view class="panel p30 flex">
+    <view class="flex items-center">
+      <image class="logo" mode="aspectFill" src="{{ item.g_image }}"></image>
+      <view>{{ item.g_name }}</view>
+    </view>
+    <van-rate
+      value="{{ 5 }}"
+      icon="like"
+      void-icon="like-o"
+      color="#FF341F"
+      data-gid="{{ item.gid }}"
+      bind:change="changeRate"
+    />
+  </view>
+  <view class="panel p30">
+    <van-field
+      value=""
+      data-gid="{{ item.gid }}"
+      label="留言"
+      type="textarea"
+      placeholder="请输入留言"
+      autosize
+      border="{{ false }}"
+      bind:change="changeMsg"
+    />
+  </view>
+</block>
+
+<view class="p30">
+  <van-button size="large" custom-class="save-btn" bind:click="submit">提交评价</van-button>
+</view>

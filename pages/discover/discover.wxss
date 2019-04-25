@@ -1,0 +1,43 @@
+/* pages/discover/discover.wxss */
+.discover {
+  position: absolute;
+  top: 88rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: stretch;
+}
+.discover-tab, .discover-content {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.discover-tab {
+  flex: 0 0 186rpx;
+  background-color: #F5F5F5;
+}
+.tab-item {
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  white-space: nowrap;
+  color: #333;
+}
+.tab-item.active {
+  background-color: #fff;
+  color: #3688FF;
+}
+.discover-content {
+  flex: 1;
+  padding: 20rpx;
+  background-color: #fff;
+}
+.content-item navigator {
+  margin-bottom: 20rpx;
+  text-align: center;
+  color: #333;
+}
+.thumb {
+  width: 140rpx;
+  height: 140rpx;
+}

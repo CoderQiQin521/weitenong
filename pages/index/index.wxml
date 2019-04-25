@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<block wx:if="{{ indexData.notice.length }}">
+  <van-notice-bar
+    text="{{ indexData.notice[0].name }}"
+  />
+</block>
+<view class="container">
+  <swiper class='swiper' circular="{{true}}" autoplay="{{true}}" indicator-dots="{{true}}">
+    <block wx:for="{{indexData.banner}}">
+      <swiper-item data-img="{{item.image}}" bindtap="previewImage">
+        <image mode="aspectFill" src="{{item.image}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <van-search value="{{ keyword }}" placeholder="请输入搜索关键词" bind:change="inputWord" bind:search="onSearch" />
+
+  <view class="menu panel text-center">
+    <van-row>
+      <!-- <van-col class="menu-item" span="8" bindtap="scanCodeCabinet">
+        <view class="icon code"></view>
+        扫一扫
+      </van-col> -->
+      <!-- <van-col class="menu-item" span="8">
+        <navigator url="/pages/delivery/delivery">
+          <view class="icon get"></view>我的快递柜
+        </navigator>
+      </van-col> -->
+      <van-col class="menu-item" span="12">
+        <navigator url="/pages/input/input">
+          <view class="icon get"></view>输入柜号
+        </navigator>
+      </van-col>
+      <van-col class="menu-item" span="12">
+        <!-- <navigator url="/pages/delivery/delivery">
+          
+        </navigator> -->
+        <view bindtap="toDelivery">
+          <view class="icon post"></view>我的快递柜
+        </view>
+      </van-col>
+      <!-- <van-col class="menu-item" span="12">
+        <navigator url="/pages/nearby/nearby">
+          <view class="icon post"></view>附近快递柜
+        </navigator>
+      </van-col> -->
+      
+    </van-row>
+  </view>
+  <!-- <wxs module="foo">
+    var fn = function(str) {
+      return JSON.stringify(str)
+    }
+    module.exports = {
+      fn: fn
+    }
+  </wxs>
+  <view>{{ JSON.stringify(indexData) }}</view>
+  <view>{{ foo.fn(indexData) }}</view> -->
+  <!-- <view class="panel" style="font-size: 0;">
+    <navigator url="/pages/game/game">
+      <image class="game" src="/images/banner2.png" ></image>
+    </navigator>
+  </view>
+   -->
+   <!-- <wxs module="test">
+    var name = '哈哈哈哈';
+    var arr = ['ghj', '使得法国', 45]
+
+    module.exports.name = name;
+    module.exports.arr = arr;
+   </wxs>
+
+   <view>{{ test.name }}</view>
+   <view>{{ test.arr }}</view>
+   <view wx:for="{{test.arr}}">{{item}}</view> -->
+  <view class="panel hot-bd">
+    <view class="flex hot-hd">
+      <view class="title">精选爆款</view>
+      <navigator class="more" url="/pages/activity/activity">更多优惠</navigator>
+    </view>
+    <van-row gutter="10">
+      <van-col wx:for="{{ indexData.goods }}" span="12">
+        <navigator class="hot-item" url="/pages/good/good?gid={{ item.gid }}">
+          <image mode="aspectFill" class="hot-img" src="{{ item.g_images }}"></image>
+        </navigator>
+      </van-col>
+    </van-row>
+  </view>
+</view>

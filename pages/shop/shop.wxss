@@ -1,0 +1,60 @@
+/* pages/shop/shop.wxss */
+page {
+  background-color: #fff!important;
+}
+
+.shopHd {
+  position: relative;
+  height: 220rpx;
+  padding: 30rpx;
+  color: #fff;
+  background-color: rgb(37, 44, 64);
+}
+
+.attention {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  display: inline-block;
+  padding: 4rpx 14rpx;
+  border: 1rpx solid #fff;
+  border-radius: 25rpx;
+}
+
+.shopname {
+  margin-bottom: 10rpx;
+  font-weight: bold;
+  font-size: 16px;
+}
+.follow {
+  font-size: 12px;
+}
+
+.search {
+  display: inline-block;
+  margin-bottom: 30rpx;
+  width: 300rpx;
+  padding: 4rpx 14rpx;
+  border: 1rpx solid #fff;
+  border-radius: 25rpx;
+}
+
+.search .van-icon {
+  margin-right: 10rpx;
+}
+
+.tag {
+  margin-right: 5rpx;
+}
+
+.top {
+  display: flex;
+}
+
+.logo {
+  width: 92rpx;
+  height: 92rpx;
+  margin-right: 20rpx;
+  border-radius: 4px;
+  overflow: hidden;
+}

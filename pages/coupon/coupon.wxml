@@ -1,0 +1,7 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="panel">
+  <van-tabs type="card" color="#3688FF">
+    <van-tab title="寄件优惠券">寄件优惠券</van-tab>
+    <van-tab title="商家优惠券">商家优惠券</van-tab>
+  </van-tabs>
+</view>

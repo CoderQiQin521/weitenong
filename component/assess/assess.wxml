@@ -1,0 +1,20 @@
+<!--component/assess/assess.wxml-->
+<view class="assess-item">
+  <view class="assess-title">
+    <view class="user">
+      <image class="avatar" src="{{ avatar }}"></image>
+      <text class="nickname">{{ nickname }}</text>
+    </view>
+    <view>
+      <van-rate
+        value="{{ rate }}"
+        icon="like"
+        void-icon="like-o"
+        disabled="true"
+        disabled-color="#FF341F"
+      />
+    </view>
+  </view>
+  <view class="content">{{ content }}</view>
+  <view class="time">{{ time }}</view>
+</view>

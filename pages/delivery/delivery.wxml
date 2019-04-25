@@ -1,0 +1,23 @@
+<!--pages/delivery/delivery.wxml-->
+<view class="devicesItem flex items-center">
+  <view class="icon"></view>
+  <view class="content">
+    <view class="name">设备厂家:  {{ resData.firm_name }}</view>
+    <view class="id">设备Id:  {{ resData.deviceId }}</view>
+  </view>
+  <view>
+    <!-- <van-button size="small" type="primary" bind:click="connect">连接</van-button> -->
+  </view>
+</view>
+<view class="panel p30">
+  <rich-text nodes="{{ resData.content }}"></rich-text>
+</view>
+<van-cell-group>
+  <van-cell
+    title="开放快递柜"
+  >
+    <view slot="right-icon">
+      <van-switch checked="{{ status }}" size="24px" bind:change="openLocker" />
+    </view>
+  </van-cell>
+</van-cell-group>

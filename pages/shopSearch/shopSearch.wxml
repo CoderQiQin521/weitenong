@@ -1,0 +1,31 @@
+<!--pages/shopSearch/shopSearch.wxml-->
+<van-search value="{{ keyword }}" use-action-slot placeholder="请输入搜索关键词" bind:change="inputWord" bind:search="onSearch">
+  <view slot="action" bind:tap="onSearch">搜本店</view>
+</van-search>
+
+<view wx:if="{{resData.length}}">
+  <van-card
+    wx:for="{{ resData }}"
+    price="{{ item.g_xprice }}"
+    desc="{{ item.desc }}"
+    title="{{ item.g_name }}"
+    thumb="{{ item.g_thumb }}"
+    thumb-mode="aspectFill"
+    thumb-link="/pages/good/good?gid={{ item.gid }}"
+  >
+    <view slot="tags">
+      <van-tag class="tag" wx:for="{{ item.tag }}" plain size="medium" type="danger">{{ item }}</van-tag>
+    </view>
+  </van-card>
+</view>
+
+<view class="p30 panel" wx:elif="{{ hotArr.length }}">
+  <view class="hotTitle">热门推荐</view>
+  <view>
+    <van-row gutter="10">
+      <van-col class="text-center hotCol" wx:for="{{ hotArr }}" span="8">
+        <view class="hotItem" data-hot="{{ item.name }}" bindtap="select">{{ item.name }}</view>
+      </van-col>
+    </van-row>
+  </view>
+</view>

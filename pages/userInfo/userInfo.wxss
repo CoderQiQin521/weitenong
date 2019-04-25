@@ -1,0 +1,7 @@
+/* pages/userInfo/userInfo.wxss */
+.avatar {
+  width: 94rpx;
+  height: 94rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}

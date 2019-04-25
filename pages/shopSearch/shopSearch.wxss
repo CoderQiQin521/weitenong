@@ -1,0 +1,17 @@
+/* pages/shopSearch/shopSearch.wxss */
+.hotTitle {
+  margin-bottom: 20rpx;
+}
+
+.hotItem {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 6rpx 20rpx;
+  border-radius: 32px;
+  text-align: center;
+  background-color: #F5F5F5;
+  color: #8C8C8C;
+}
+.hotCol:nth-child(n+4) .hotItem {
+  margin-top: 30rpx;
+}

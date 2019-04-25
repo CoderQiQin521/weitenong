@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "店铺搜索",
+  "usingComponents": {
+    "van-search": "/dist/search/index",
+    "van-row": "/dist/row/index",
+    "van-col": "/dist/col/index",
+    "van-card": "/dist/card/index"
+  }
+}

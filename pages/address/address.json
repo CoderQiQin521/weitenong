@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "我的地址",
+  "usingComponents": {
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-cell": "/dist/cell/index",
+    "van-cell-group": "/dist/cell-group/index",
+    "van-icon": "/dist/icon/index",
+    "van-swipe-cell": "/dist/swipe-cell/index",
+    "van-tag": "/dist/tag/index"
+  }
+}

@@ -1,0 +1,7 @@
+<!--pages/about/about.wxml-->
+<view class="p30">
+  <view class="text-center">
+    <image wx:if="{{ resData.pclogo }}" class="logo" mode="aspectFit" src="{{ resData.pclogo }}"></image>
+  </view>
+  <rich-text nodes="{{ resData.content }}"></rich-text>
+</view>

@@ -1,0 +1,49 @@
+<!--pages/postPacket/postPacket.wxml-->
+<van-tabs color="#3688FF" active="{{0}}">
+  <van-tab title="自己去寄件">
+    <van-cell-group>
+      <van-cell
+        title="智能柜信息"
+        is-link
+        url="/pages/packet/packet"
+      />
+      <van-cell
+        title="快递公司"
+        is-link
+        url="/pages/order/order"
+      />
+      <van-cell
+        title="包裹信息"
+        is-link
+        url="/pages/address/address"
+      />
+  </van-cell-group>
+  <van-cell-group>
+      <van-cell
+        title="实名认证"
+        is-link
+        url="/pages/packet/packet"
+      />
+      <van-cell
+        title="备注"
+        is-link
+        url="/pages/order/order"
+      />
+  </van-cell-group>
+  </van-tab>
+  <van-tab title="快递员上门">
+    <van-card
+      desc="韵达快递:已签收，签收人..."
+      title="坚果坚果坚果坚果坚果坚果"
+      thumb="https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg"
+      custom-class="whiteBg"
+    />
+  </van-tab>
+</van-tabs>
+<view class="panel fixed-bottom flex" style="margin-bottom:0;">
+  <view>
+    <text>运费¥ 8.00</text>
+    <text>以选择快递公司时效为准</text>
+  </view>
+  <van-button custom-class="save-btn">下单</van-button>
+</view>

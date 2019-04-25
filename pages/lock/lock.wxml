@@ -1,0 +1,29 @@
+<!--pages/lock/lock.wxml-->
+<view class="devicesItem flex items-center">
+  <view class="icon"></view>
+  <view class="content">
+    <view class="name">设备名称:  {{ name }}</view>
+    <view class="id">设备Id:  {{ deviceId }}</view>
+    <view class="id">设备数据:  12312312</view>
+  </view>
+  <view>
+    <!-- <van-button size="small" type="primary" bind:click="connect">连接</van-button> -->
+  </view>
+</view>
+<view class="panel p30">
+  <view class="title">蓝牙连接设备说明：(测试文字)</view>
+  <view class="p">
+    <view>1.打开手机、电脑的蓝牙功能</view>
+    <view>2.长摁FIIL Wireless 蓝牙功能键至指示灯交替闪烁。</view>
+    <view>3.保持耳机配对状态,在手机、电脑中都会显示"Fiil Wireless"</view>
+    <view>4.点击连接，就能成功连接上蓝牙耳机了</view>
+    <view>5.找首音乐，畅享FIIL Wireless 带给你的完美音乐体验吧~ </view>
+  </view>
+</view>
+
+<view class="fixed-bottom flex">
+  <view class="btn" bindtap="connectTO">开柜子</view>
+  <view class="btn">关柜子</view>
+  <view class="btn">重新连接</view>
+  <view class="btn">断开连接</view>
+</view>

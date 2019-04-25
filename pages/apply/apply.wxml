@@ -1,0 +1,51 @@
+<!--pages/apply/apply.wxml-->
+<van-cell-group>
+  <van-field
+    label="姓名"
+    required
+    value="{{ usernames }}"
+    placeholder="请输入姓名"
+    border="{{ false }}"
+    bind:change="inputName"
+  />
+  <van-field
+    label="店铺名称"
+    required
+    value="{{ value }}"
+    placeholder="请输入店铺名称"
+    border="{{ false }}"
+    bind:change="inputShopName"
+  />
+  <van-field
+    label="店铺简介"
+    required
+    value="{{ value }}"
+    placeholder="请输入店铺简介"
+    border="{{ false }}"
+    bind:change="inputShopDesc"
+  />
+  <van-field
+    label="联系电话"
+    required
+    value="{{ value }}"
+    placeholder="请输入联系电话"
+    border="{{ false }}"
+    bind:change="inputPhone"
+  />
+  <van-field
+    label="联系地址"
+    required
+    value="{{ value }}"
+    placeholder="请输入联系地址"
+    border="{{ false }}"
+    bind:change="inputAddr"
+  />
+</van-cell-group>
+<view class="p30">
+  <view class="text-center msg">
+    {{ resData.desc }}
+  </view>
+  <van-button size="large" custom-class="save-btn" bind:click="submit">提交申请</van-button>
+</view>
+
+

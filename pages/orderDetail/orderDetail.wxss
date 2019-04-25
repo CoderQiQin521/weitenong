@@ -1,0 +1,40 @@
+/* pages/orderDetail/orderDetail.wxss */
+.hd {
+  padding: 80rpx 30rpx;
+  background-color: rgb(181, 18, 38);
+  color: #fff;
+}
+.hd .title {
+  margin-bottom: 30rpx;
+  font-size: 18px;
+}
+.title {
+  font-weight: bold;
+}
+.price {
+  color: #FF3824;
+}
+.orderinfo {
+  margin: 30rpx 0;
+}
+.orderinfo .flex {
+  margin: 20rpx 0;
+  color: #8C8C8C;
+}
+.cirle {
+  margin-top: 20rpx;
+  margin-right: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50rpx;
+  background-color: rgb(181, 18, 38);
+}
+.info {
+  color: #8C8C8C;
+}
+
+.add {
+  justify-content: flex-start;
+}

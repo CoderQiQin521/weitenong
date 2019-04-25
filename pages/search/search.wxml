@@ -1,0 +1,30 @@
+<!--pages/search/search.wxml-->
+<block wx:if="{{ resData.length }}">
+  <view class="p30 panel order">
+    <view class="order-item {{currentSelect === 0 ? 'synthesize' : ''}}" id="0" data-order="0" bindtap="changeOrder">综合</view>
+    <view class="order-item {{currentSelect === 1 ? 'synthesize' : ''}}" id="1" data-order="3" bind:tap="changeOrder">销量</view>
+     <view class="order-item {{currentSelect === 2 ? 'synthesize' : ''}}" id="2" data-order="2" bind:tap="changeOrder">价格<van-icon name="{{ price ? 'arrow-down' : 'arrow-up' }}" /></view>
+  </view>
+  <view class="">
+    <van-card
+      wx:for="{{ resData }}"
+      price="{{ item.g_xprice }}"
+      desc="{{ item.desc }} 销量: {{ item.g_sales }}"
+      title="{{ item.g_name }}"
+      thumb="{{ item.g_thumb }}"
+      thumb-mode="aspectFit"
+      thumb-link="/pages/good/good?gid={{ item.gid }}"
+    >
+      <view slot="tags">
+        <van-tag class="tag" wx:for="{{ item.tag }}" plain size="medium" type="danger">{{ item }}</van-tag>
+      </view>
+      <view slot="footer">
+        <van-button size="mini" data-shopid="{{ item.shopid }}" bind:click="toShop">进店</van-button>
+      </view>
+    </van-card>
+  </view>
+</block>
+<block wx:else>
+  <view class="icon"></view>
+  <view class="text-center">不好意思，没有相应的产品哦！</view>
+</block>

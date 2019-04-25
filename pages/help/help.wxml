@@ -1,0 +1,13 @@
+<!--pages/help/help.wxml-->
+<view class="p30">取快递</view>
+<van-collapse accordion value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item wx:for="{{ resData.take }}" title="{{ item.name }}" name="{{ item.id }}">
+    {{ item.desc }}
+  </van-collapse-item>
+</van-collapse>
+<view class="p30">寄快递</view>
+<van-collapse accordion value="{{ activeName }}" bind:change="onChanges">
+  <van-collapse-item wx:for="{{ resData.hair }}" title="{{ item.name }}" name="{{ item.id }}">
+    {{ item.desc }}
+  </van-collapse-item>
+</van-collapse>

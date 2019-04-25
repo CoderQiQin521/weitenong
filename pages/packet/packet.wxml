@@ -1,0 +1,7 @@
+<!--pages/packet/packet.wxml-->
+<view class="panel p30 text-center">
+  <van-row>
+    <van-col span="12">零钱</van-col>
+    <van-col span="12">可提现</van-col>
+  </van-row>
+</view>

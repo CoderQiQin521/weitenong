@@ -1,0 +1,13 @@
+/* pages/collect/collect.wxss */
+page {
+  background-color: #fff;
+}
+
+.del {
+  width: 130rpx;
+  height: 180rpx;
+  text-align: center;
+  line-height: 180rpx;
+  background-color: #EF4D3E;
+  color: #fff;
+}

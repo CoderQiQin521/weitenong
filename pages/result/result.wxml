@@ -1,0 +1,9 @@
+<!--pages/result/result.wxml-->
+<view class="res p30 text-center">
+  <icon class="icon" type="{{ resData.type }}" size="70" />
+
+  <view class="title">{{ resData.title }}</view>
+  <view class="msg">{{ resData.msg }}</view>
+
+  <van-button round custom-class="btn" bind:click="toIndex">返回首页</van-button>
+</view>

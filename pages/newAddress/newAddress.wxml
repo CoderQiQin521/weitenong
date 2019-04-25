@@ -1,0 +1,44 @@
+<!--pages/newAddress/newAddress.wxml-->
+<view class="panel">
+  <van-cell-group>
+    <van-field
+      label="姓名"
+      value="{{ username }}"
+      placeholder="请输入姓名"
+      border="{{ false }}"
+      bind:change="inputName"
+    />
+    <van-field
+      label="电话号码"
+      value="{{ phone }}"
+      placeholder="请输入电话号码"
+      border="{{ false }}"
+      bind:change="inputPhone"
+    />
+    <picker
+      mode="region"
+      value="{{ addr }}"
+      bindchange="bindRegionChange"
+    >
+      <van-cell
+        title="所在地区"
+        value="{{ addr }}"
+        is-link
+      />
+    </picker>
+    <van-field
+      value="{{ addrs }}"
+      label="详细地址"
+      type="textarea"
+      placeholder="请输入详细地址"
+      bindchange="inputAddrs"
+      autosize
+      border="{{ false }}"
+    />
+  </van-cell-group>
+</view>
+
+<view class="p30">
+  <van-button size="large" custom-class="save-btn" bind:click="onSave">保存</van-button>
+</view>
+

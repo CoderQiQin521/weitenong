@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "全部评论",
+  "usingComponents": {
+    "assess": "/component/assess/assess"
+  }
+}

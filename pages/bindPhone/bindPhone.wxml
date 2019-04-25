@@ -1,0 +1,26 @@
+<!--pages/bindPhone/bindPhone.wxml-->
+<van-cell-group>
+  <van-field
+    value="{{ phone }}"
+    label="手机号"
+    placeholder="请输入手机号"
+    border="{{ false }}"
+    bind:change="inputPhone"
+  />
+  <van-field
+    value="{{ sms }}"
+    center
+    clearable
+    label="短信验证码"
+    placeholder="请输入短信验证码"
+    border="{{ false }}"
+    bind:change="inputCode"
+    use-button-slot
+  >
+    <van-button disabled="{{ codeStatus }}" slot="button" size="small" type="primary" bind:click="sendCode">{{ codeMsg }}</van-button>
+  </van-field>
+</van-cell-group>
+
+<view class="fixed-bottom">
+  <van-button type="primary" size="large" bind:click="submit">保存</van-button>
+</view>

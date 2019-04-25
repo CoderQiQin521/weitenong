@@ -1,0 +1,4 @@
+/* pages/assess/assess.wxss */
+page {
+  background-color: #fff!important;
+}

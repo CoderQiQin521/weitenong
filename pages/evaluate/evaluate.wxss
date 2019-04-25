@@ -1,0 +1,6 @@
+/* pages/evaluate/evaluate.wxss */
+.logo {
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 30rpx;
+}

@@ -1,0 +1,62 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="panel p30 hd">
+  <view class="title">{{ resData.status }}</view>
+  <view>{{ resData.time }}</view>
+</view>
+<view class="panel p30 flex add">
+  <view class="cirle">
+    <van-icon name="location-o" color="#fff" />
+  </view>
+  <view>
+    <view>{{ resData.addr.username }}   {{ resData.addr.phone }}</view>
+    <view>{{ resData.addr.addr }}{{ resData.addr.addrs }}</view>
+  </view>
+</view>
+<view class="panel p30">
+  <view class="panel shopTitle">
+      <van-cell
+        title="{{ resData.shopname }}"
+        is-link
+        border="{{ false }}"
+        url="/pages/shop/shop?shopid={{ item.shopid }}"
+      />
+    </view>
+  <block wx:for="{{ resData.goods }}">
+    <view class="goodItem">
+      <view class="card">
+        <van-card
+          price="{{ item.g_xprice }}"
+          desc="{{item.s_name}}"
+          num="{{ item.num }}"
+          title="{{ item.g_name }}"
+          thumb="{{ item.g_image }}"
+          thumb-mode="aspectFill"
+        >
+        </van-card>
+      </view>
+    </view>
+  </block>
+  <view class="orderinfo">
+    <view class="flex">
+        <view>运费:</view>
+        <view>¥ {{ resData.freight }}</view>
+      </view>
+    <view class="flex">
+        <view>商品总价:</view>
+        <view>¥ {{ resData.money }}</view>
+      </view>
+  </view>
+  
+</view>
+<!-- <view class="panel p30 flex">
+<view class="title">订单信息</view>
+<view class="price">¥ 12.0</view>
+</view> -->
+<view class="panel p30">
+  <view class="title">订单信息</view>
+  <view class="info">
+    <view>订单编号： {{ resData.code }}</view>
+    <view>付款时间： {{ resData.fu_time }}</view>
+    <view>发货时间： {{ resData.fa_time }}</view>
+  </view>
+</view>

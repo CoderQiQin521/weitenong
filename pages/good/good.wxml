@@ -1,0 +1,132 @@
+<!--pages/good/good.wxml-->
+<block wx:if="{{ goodData.banner.length }}">
+  <swiper class='swiper' circular="{{true}}" autoplay="{{true}}" indicator-dots="{{true}}">
+    <block wx:for="{{ goodData.banner }}">
+      <swiper-item data-img="{{ item.image }}" bindtap="previewImage">
+        <image mode="aspectFill" src="{{ item.image }}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</block>
+<block wx:else>
+  <view class="swiper nobanner">
+    暂未添加商品图片
+  </view>
+</block>
+<view class="panel p30">
+  <view class="good-title text-ellipsis">{{ goodData.goods.g_name }}</view>
+  <view class="flex">
+    <view class="good-price">¥{{ goodData.goods.g_xprice }}</view>
+    <view class="good-like text-center">
+      <view class="collect" wx:if="{{ collect === 0 }}" bindtap="collect">
+        <van-icon name="like-o" size="20px" />
+        <view>收藏宝贝</view>
+      </view>
+      <view class="collect" wx:else bindtap="collect">
+        <van-icon name="like" custom-style="color: rgb(255, 56, 36)" size="20px" />
+        <view>已收藏</view>
+      </view>
+    </view>
+  </view>
+  <view class="good-info">快递: <text wx:if="{{ goodData.goods.g_freight === 0 }}">免运费</text> <text wx:else>{{ goodData.goods.g_freight }}</text>    销量{{ goodData.goods.g_sales }}笔</view>
+</view>
+
+<block wx:if="{{ addData.aid }}">
+  <view style="margin-bottom: 30rpx;">
+    <van-cell
+      title="送至"
+      label="{{ addData.addr }} {{ addData.addrs }}"
+      border="false"
+    />
+  </view>
+</block>
+
+<van-action-sheet show="{{ show }}" title="支持以下配送方式" bind:close="onClose">
+  <view class="p30">一些内容
+    <van-button size="large" custom-class="save-btn">确定</van-button>
+  </view>
+</van-action-sheet>
+
+<view class="p30 panel flex items-center">
+  <view class="flex items-center">
+    <image mode="aspectFill" class="shoplogo" src="{{ goodData.shop.logo }}"></image>
+    <text>{{ goodData.shop.name }}</text>
+  </view>
+  <view>
+    <view><van-button size="small" type="danger" round data-shopid="{{ goodData.goods.shopid }}" bind:click="toShop">进店逛逛</van-button></view>
+    <view wx:if="{{ goodData.shop.phone }}" style="margin-top: 10rpx;"><van-button size="small" type="primary" round data-phone="{{ goodData.shop.phone }}" bind:click="callPhone">拨打电话</van-button></view>
+  </view>
+  
+  
+</view>
+
+<van-tabs color="#3688FF">
+  <van-tab title="商品详情">
+    <rich-text nodes="{{ goodData.goods.g_content }}" bindtap="tap"></rich-text>
+  </van-tab>
+  <van-tab title="用户评价">
+    <van-cell
+      title="商品评价({{ goodData.assess.length }})"
+      value="查看全部"
+      border="false"
+      url="/pages/assess/assess?gid={{ gid }}"
+      is-link
+    />
+    <block wx:if="{{ goodData.assess.length }}">
+      <view class="assess">
+        <assess wx:for="{{ goodData.assess }}" avatar="{{ item.image }}" nickname="{{ item.nickname }}" rate="{{ item.number }}" content="{{ item.content }}" time="{{ item.addtime }}"></assess>
+      </view>
+    </block>
+    <view wx:else class="text-center">
+      暂无评论
+    </view>
+  </van-tab>
+</van-tabs>
+
+<van-goods-action custom-class="goods-action">
+  <van-goods-action-icon
+    icon="chat-o"
+    text="客服"
+    open-type="contact"
+    bind:click="onClickIcon"
+  />
+  <van-goods-action-icon
+    icon="cart-o"
+    text="购物车"
+    info="{{ car_cou < 99 ? car_cou : '99+' }}"
+    url="/pages/cart/cart"
+    bind:click="onClickIcon"
+  />
+  <van-goods-action-button
+    text="加入购物车"
+    type="warning"
+    data-type="{{ 1 }}"
+    bind:click="openGoodSheet"
+  />
+  <van-goods-action-button
+    text="立即购买"
+    data-type="{{ 2 }}"
+    bind:click="openGoodSheet"
+  />
+</van-goods-action>
+
+<van-action-sheet show="{{ addCart }}" bind:close="onClose">
+  <view class="p30">
+    <view class="flex goodinfohd">
+      <image mode="aspectFill" class="simage" src="{{ goodSpec.spec[specindex].s_image }}"></image>
+      <view class="goodinfosheet">
+        <view class="g_name">{{ goodSpec.goods.g_name }}</view>
+        <view class="s_xprice">¥{{ goodSpec.spec[specindex].s_xprice }}</view>
+      </view>
+    </view>
+    <view class="tb">
+      <view class="tb">规格</view>
+      <view class="specItem {{ specid === item.sid ? 'on' : ''}}" wx:for="{{ goodSpec.spec }}" data-index="{{ index }}" data-specid="{{ item.sid }}" bindtap="selectSpec">{{ item.s_name }}</view>
+    </view>
+    <view class="flex tb">
+      <view>数量</view>
+      <van-stepper value="{{ count }}" max="99" bind:change="changeCount" />
+    </view>
+  </view>
+  <van-button size="large" custom-class="save-btn" bind:click="addCar">确定</van-button>
+</van-action-sheet>

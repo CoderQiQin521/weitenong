@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "帮助中心",
+  "usingComponents": {
+    "van-collapse": "/dist/collapse/index",
+    "van-collapse-item": "/dist/collapse-item/index"
+  }
+}

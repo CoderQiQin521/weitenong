@@ -1,0 +1,30 @@
+/* pages/nearby/nearby.wxss */
+.devicesItem {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+  background-color: #fff;
+}
+.devicesItem:last-child {
+  border-bottom: 0;
+}
+.icon {
+  width: 94rpx;
+  height: 94rpx;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAABeBAMAAABY/L5dAAAAJFBMVEVHcEw2h/81iP81h/8zhf8sdf81iP82h/81if82iP8zhf82iP/RNZEFAAAAC3RSTlMA5PZVJQd2tsWdFadmKvsAAADvSURBVFjDY2BgYO8gFkxgAAHG3cQCgeGifkc5YSCNpF7NhTBIQlKvzEAYkKiedcDUc62CgQCi1C8rryyfDkamRKn32ASNnk1TiVK/HB6fqaSp30SUetYVu0l0jxIMEOeeJcYw4ECUelYsLNqnB9T0yRpKECCr10wjDKqR868SYTCcyp9NgoQBcvmzncTyZ+cCwvFrNKp+VP0gVL9klVcACepZ08vLDUhRX717UwIp6mfv3kii+lHzR80fueZbzpxGSn5kCA0IHS0PR9WPqqen+gDS1O8wJgwmIbdviWjPaw+b9rySkiIR7XkhJSWgegD/Fp/ND7WmlgAAAABJRU5ErkJggg==');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.content {
+  padding-left: 30rpx;
+  flex: 2;
+}
+.name {
+  margin-bottom: 10rpx;
+  font-size: 16px;
+  color: #333333;
+}
+.id {
+  font-size: 12px;
+  color: #8C8C8C;
+}

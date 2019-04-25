@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "快件",
+  "usingComponents": {
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index"
+  }
+}

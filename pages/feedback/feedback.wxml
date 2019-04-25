@@ -1,0 +1,5 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="panel">
+  <textarea name="" class="textarea" rows="6" placeholder="说说你的问题"></textarea>
+  <van-button custom-class="submit-btn" size="small" bind:click="t">提交</van-button>
+</view>

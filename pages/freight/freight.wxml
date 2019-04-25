@@ -1,0 +1,7 @@
+<!--pages/freight/freight.wxml-->
+<view class="panel">
+  <van-tabs type="card" color="#3688FF">
+    <van-tab title="我取出的">寄件优惠券</van-tab>
+    <van-tab title="我寄出的">商家优惠券</van-tab>
+  </van-tabs>
+</view>

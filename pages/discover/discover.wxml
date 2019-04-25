@@ -1,0 +1,17 @@
+<!--pages/discover/discover.wxml-->
+<van-search value="{{ keyword }}" placeholder="请输入搜索关键词" bind:change="inputWord" bind:search="onSearch" />
+<view class="discover">
+  <view class="discover-tab">
+    <view wx:for="{{ resData }}" class="tab-item text-ellipsis {{ active === item.type_id ? 'active' : '' }}" data-typeid="{{ item.type_id }}" bindtap="select">{{ item.type_name }}</view>
+  </view>
+  <view class="discover-content">
+    <van-row gutter="10">
+      <van-col class="content-item" wx:for="{{ goodsArr }}" span="8">
+        <navigator url="/pages/good/good?gid={{ item.gid }}">
+          <image class="thumb" mode="aspectFill" src="{{ item.g_image }}" />
+          <view class="text-ellipsis">{{ item.g_name }}</view>
+        </navigator>
+      </van-col>
+    </van-row>
+  </view>
+</view>

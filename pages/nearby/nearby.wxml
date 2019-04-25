@@ -1,0 +1,38 @@
+<!--pages/nearby/nearby.wxml-->
+
+  <block wx:if="{{ connectedDevice.length }}">
+    <view>已连接</view>
+    <view class="panel">
+      <view>{{ connectedDevice[0].name }}</view>
+    </view>
+  </block>
+     
+  <block>
+    <!-- <view>其他设备</view> -->
+    <block wx:for="{{ devices }}">
+      <view class="devicesItem flex items-center">
+        <view class="icon">
+
+        </view>
+        <view class="content">
+          <view class="name">设备名称:  {{ item.name }}</view>
+          <view class="id">设备Id:  {{ item.deviceId }}</view>
+          <view class="id">设备数据:  {{ item.advertisData }}</view>
+        </view>
+        <view>
+          <van-button size="small" id="{{ item.deviceId }}" data-name="{{ item.name }}" type="primary" bind:click="connect">连接</van-button>
+        </view>
+        
+      </view>
+    </block>
+  </block>
+<!-- 
+  <button type="primary" bindtap="devicesDiscovery">重新搜索</button>
+  <button type="wran" bindtap="stopDevicesDiscovery">停止搜索</button> -->
+
+
+<view class="fixed-bottom">
+  <van-button type="danger" size="large" bind:click="onClose">结束wx蓝牙</van-button>
+  <van-button size="large" custom-class="save-btn" bind:click="onFind">搜索快递柜</van-button>
+</view>
+

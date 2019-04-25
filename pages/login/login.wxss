@@ -1,0 +1,15 @@
+/* pages/login/login.wxss */
+page {
+  padding-top: 100rpx;
+}
+
+.text {
+  margin-bottom: 50rpx;
+  color: #8C8C8C;
+}
+
+.logo {
+  width: 260rpx;
+  height: 260rpx;
+  margin-bottom: 20rpx;
+}

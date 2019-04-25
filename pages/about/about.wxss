@@ -1,0 +1,5 @@
+/* pages/about/about.wxss */
+.logo {
+  width: 300rpx;
+  height: 300rpx;
+}

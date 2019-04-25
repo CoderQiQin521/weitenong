@@ -1,0 +1,49 @@
+<!--pages/cart/cart.wxml-->
+<block wx:if="{{resData.length}}">
+    <block wx:for="{{ resData }}">
+      <view class="panel shopTitle">
+        <van-checkbox data-shopid="{{ item.shopid }}" data-check="{{ item.check }}" value="{{  item.check }}" bind:change="checkedShop"></van-checkbox>
+        <van-cell
+          title="{{ item.shopname }}"
+          is-link
+          border="{{ false }}"
+          url="/pages/shop/shop?shopid={{ item.shopid }}"
+        />
+      </view>
+      <view class="flex gray goodItem" wx:for="{{ item.goods }}">
+        <van-checkbox value="{{ item.status }}" data-cid="{{ item.cid }}" bind:change="checkedOne"></van-checkbox>
+        <view class="card">
+          <van-card
+            price="{{ item.price }}"
+            desc="包邮"
+            title="{{ item.c_name }}"
+            thumb="{{ item.c_image }}"
+            thumb-mode="aspectFill"
+            thumb-link="/pages/good/good?gid={{ item.gid }}"
+          >
+            <view slot="footer">
+              <van-stepper data-cid="{{ item.cid }}" value="{{ item.num }}" max="99" bind:change="changeCount" />
+            </view>
+          </van-card>
+        </view>
+      </view>
+    </block>
+
+  <van-submit-bar
+    tip="{{ fasle }}"
+    disabled="{{ !total }}"
+    price="{{ total }}"
+    button-text="提交订单"
+    bind:submit="onSubmit"
+    button-class="b"
+  >
+    <van-checkbox style="margin-left: 20rpx;" value="{{ checkedAll }}" bind:change="checkedAll">全选</van-checkbox>
+    <view class="delete" wx:if="{{ total }}" bind:tap='delete'>删除</view>
+    <view slot="tip">
+      您的收货地址不支持同城送, <text>修改地址</text>
+    </view>
+  </van-submit-bar>
+</block>
+<view wx:else class="noGoods">
+  <view class="">购物车中没有商品</view>
+</view>

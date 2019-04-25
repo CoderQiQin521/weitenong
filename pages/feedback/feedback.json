@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "反馈与建议",
+  "usingComponents": {
+    "van-button": "/dist/button/index"
+  }
+}

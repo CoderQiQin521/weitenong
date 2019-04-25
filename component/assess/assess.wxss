@@ -1,0 +1,37 @@
+/* component/assess/assess.wxss */
+@import '../common/index.wxss'
+.assess-item {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.assess-title {
+  display: flex;
+  justify-content: space-between;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.nickname {
+  margin-left: 20rpx;
+}
+.avatar {
+  margin-bottom: 0;
+}
+.content {
+  margin: 20rpx 0;
+}
+.time {
+  text-align: right;
+  color: #8C8C8C;
+  font-size: 12px;
+}
+.avatar {
+  width: 94rpx;
+  height: 94rpx;
+  margin: 0 auto;
+  border: 6rpx solid rgba(255, 255, 255, .85);
+  border-radius: 50%;
+  /* background-color: #fff; */
+  overflow: hidden;
+}

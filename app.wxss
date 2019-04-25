@@ -1,0 +1,87 @@
+/**app.wxss**/
+/* .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+page {
+  background-color: #F5F5F5;
+  font-size: 14px;
+}
+
+image {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.panel {
+  margin-bottom: 30rpx;
+  background-color: #fff;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.p30 {
+  padding: 30rpx;
+}
+.p15 {
+  padding: 15rpx;
+}
+
+.fixed-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.items-center {
+  align-items: center;
+}
+.whiteBg {
+  background-color: #fff!important;
+}
+
+.save-btn {
+  background-color: #3688FF!important;
+  color: #fff!important;
+}
+
+.avatar {
+  width: 94rpx;
+  height: 94rpx;
+  margin: 0 auto 30rpx;
+  border: 6rpx solid rgba(255, 255, 255, .85);
+  border-radius: 50%;
+  /* background-color: #fff; */
+  overflow: hidden;
+}
+
+.bgWhite {
+  background-color: #fff!important;
+}
+
+.text-right {
+  text-align: right;
+}

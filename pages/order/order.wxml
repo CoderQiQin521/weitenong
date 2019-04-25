@@ -1,0 +1,68 @@
+<!--pages/order/order.wxml-->
+<van-tabs swipeable color="#3688FF" bind:click="changeTab">
+  <van-tab title="全部"></van-tab>
+  <van-tab title="待付款"></van-tab>
+  <van-tab title="待发货"></van-tab>
+  <van-tab title="待收货"></van-tab>
+  <van-tab title="待评价"></van-tab>
+  <van-tab title="退款/售后"></van-tab>
+  <van-tab title="退货中"></van-tab>
+  <van-tab title="已退货"></van-tab>
+</van-tabs>
+<block wx:if="{{ resData.length }}">
+  <block wx:for="{{ resData }}">
+    <van-cell
+      title="{{ item.shopname }}"
+      is-link
+      url="/pages/shop/shop?shopid={{ item.shopid }}"
+    />
+    <block wx:for="{{ item.goods }}">
+      <van-card
+        num="{{ item.num }}"
+        price="{{ item.g_xprice }}"
+        title="{{ item.g_name }}"
+        thumb="{{ item.g_image }}"
+        thumb-mode="aspectFill"
+        thumb-link="/pages/good/good?gid={{ item.gid }}"
+      >
+        <view slot="tags">
+          <van-tag class="tag" plain size="medium" type="danger">{{ item.s_name }}</van-tag>
+        </view>
+      </van-card>
+    </block>
+    <view class="panel p15 text-right">
+      <van-button round size="small" data-did="{{ item.did }}" bind:click="toDetail">查看详情</van-button>
+      <block wx:if="{{ item.status === 0 }}">
+        <van-button round size="small" data-status="{{ item.status }}" data-did="{{ item.did }}" bind:click="cancel">取消订单</van-button>
+        <van-button round type="danger" size="small" data-status="{{ item.status }}" data-did="{{ item.did }}" bind:click="onPay">付款</van-button>
+      </block>
+      <block wx:if="{{ item.status === 1 }}">
+        <van-button round size="small" data-status="{{ item.status }}" data-did="{{ item.did }}" bind:click="refund">退款</van-button>
+      </block>
+      <block wx:if="{{ item.status === 2 }}">
+        <van-button round size="small" data-status="{{ item.status }}" data-did="{{ item.did }}" bind:click="affirm">确认收货</van-button>
+      </block>
+      <block wx:if="{{ item.status === 3 }}">
+        <van-button round size="small" data-status="{{ item.status }}" data-did="{{ item.did }}" bind:click="evaluate">评价</van-button>
+      </block>
+      <block wx:if="{{ item.status === 4 }}">
+        <van-button round size="small" data-status="{{ item.status }}" data-did="{{ item.did }}" bind:click="refund">退款</van-button>
+      </block>
+    </view>
+  </block>
+</block>
+<block wx:else>
+  <view class="nodata">
+    <view class="icon"></view>
+    <view class="msg">暂无数据</view>
+  </view>
+</block>
+
+<van-action-sheet
+  show="{{ actionsStatus }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
+
+

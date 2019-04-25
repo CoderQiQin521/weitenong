@@ -1,0 +1,26 @@
+<!--pages/input/input.wxml-->
+<van-cell-group>
+  <van-field
+    value="{{ code }}"
+    type="number"
+    label="快递柜识别码"
+    clearable
+    placeholder="请在此输入"
+    border="{{ false }}"
+    focus="{{ focus }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+<view>
+连接状态: {{ isConnect }}
+</view>
+<view>
+Token: {{ yjtoken }}
+</view>
+
+
+<view class="fixed-bottom">
+  <van-button type="warning" size="large" bind:click="openBtn">连接</van-button>
+  <van-button type="info" size="large" bind:click="getYjToken">获取token</van-button>
+  <van-button type="primary" size="large" bind:click="openYj">开锁</van-button>
+</view>

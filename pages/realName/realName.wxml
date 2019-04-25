@@ -1,0 +1,22 @@
+<!--pages/realName/realName.wxml-->
+<view class="tip text-ellipsis">根据国家规定，寄快递需要实名认证</view>
+<view class="p30">
+  <view class="panel p30">
+    <van-row>
+      <van-col span="12">
+        <view class="front item flexCenter">
+          <view>点击上传</view>
+          <view>身份证头像面</view>
+        </view>
+      </van-col>
+      <van-col span="12">
+        <view class="reverse item flexCenter">
+          <view>点击上传</view>
+          <view>身份证国徽面</view>
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+
+  <van-button size="large" custom-class="save-btn">保存</van-button>
+</view>

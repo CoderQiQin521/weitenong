@@ -1,0 +1,92 @@
+<!--pages/createOrder/createOrder.wxml-->
+<!-- <van-notice-bar
+  mode="closeable"
+  text="这是一段测试公告, 内容后台编辑这是一段测试公告, 内容后台编辑。"
+/> -->
+<van-cell
+  title="送至"
+  label="{{ addData.addr }} {{ addData.addrs }}"
+  border="{{ false }}"
+  url="/pages/address/address?create=1"
+  is-link
+/>
+
+<view class="gray goodItem" wx:for="{{ resData.goods }}">
+  <view class="card">
+    <van-card
+      price="{{ item.g_xprice }}"
+      num="{{ item.num }}"
+      title="{{ item.g_name }}"
+      thumb="{{ item.g_image }}"
+      thumb-mode="aspectFill"
+      thumb-link="/pages/good/good?gid={{ item.gid }}"
+    >
+      <view slot="tags">
+        <van-tag round plain type="danger">{{ item.s_name }}</van-tag>
+      </view>
+      <view slot="footer" class="xj">
+        小计: {{ item.x_total }}
+      </view>
+    </van-card>
+  </view>
+</view>
+
+<view class="p30 info">
+  <view class="flex">
+    <view>商品金额</view>
+    <view>{{ resData.moneys - resData.freight }}</view>
+  </view>
+  <view class="flex">
+    <view>运费</view>
+    <view>{{ resData.freight === 0 ? '免运费' : resData.freight }}</view>
+  </view>
+</view>
+
+<van-field
+  type="textarea"
+  placeholder="请输入购买备注"
+  border="{{ false }}"
+  autosize
+  maxlength="200"
+  bind:change="inputContent"
+/>
+
+<!-- <block wx:for="{{ resData.goods }}">
+  <view class="panel shopTitle">
+    <van-checkbox data-shopid="{{ item.shopid }}" data-check="{{ item.check }}" value="{{  item.check }}" bind:change="checkedShop"></van-checkbox>
+    <van-cell
+      title="{{ item.shopname }}"
+      is-link
+      border="{{ false }}"
+      url="/pages/shop/shop?shopid={{ item.shopid }}"
+    />
+  </view>
+  <view class="flex gray goodItem" wx:for="{{ item.goods }}">
+    <van-checkbox value="{{ item.status }}" data-cid="{{ item.cid }}" bind:change="checkedOne"></van-checkbox>
+    <view class="card">
+      <van-card
+        price="{{ item.price }}"
+        desc="包邮"
+        title="{{ item.c_name }}"
+        thumb="{{ item.c_image }}"
+        thumb-mode="aspectFill"
+        thumb-link="/pages/good/good?gid={{ item.gid }}"
+      >
+        <view slot="footer">
+          <van-stepper data-cid="{{ item.cid }}" value="{{ item.num }}" max="99" bind:change="changeCount" />
+        </view>
+      </van-card>
+    </view>
+  </view>
+</block> -->
+
+
+<van-submit-bar
+  loading="{{ pay }}"
+  disabled="{{ total }}"
+  price="{{ resData.moneys * 100 }}"
+  button-text="去支付"
+  bind:submit="onPay"
+  button-class="b"
+>
+</van-submit-bar>

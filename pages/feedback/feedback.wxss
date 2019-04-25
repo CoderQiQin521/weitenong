@@ -1,0 +1,11 @@
+/* pages/feedback/feedback.wxss */
+.panel {
+  padding: 20rpx;
+}
+.textarea {
+  width: 100%;
+}
+.submit-btn {
+  background-color: #3688FF!important;
+  color: #fff!important;
+}

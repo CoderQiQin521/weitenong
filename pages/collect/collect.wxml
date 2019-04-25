@@ -1,0 +1,35 @@
+<!--pages/collect/collect.wxml-->
+<!-- <view class="panel">
+  
+</view> -->
+<van-tabs type="card" color="#3688FF">
+  <van-tab title="商品">
+    <block wx:for="{{ goodData }}">
+      <van-swipe-cell right-width="{{ 65 }}" data-gid="{{ item.gid }}" async-close bind:close="onSwipeCellGood">
+        <van-card
+          custom-class="bgWhite"
+          price="{{ item.g_xprice }}"
+          title="{{ item.g_name }}"
+          thumb="{{ item.g_image }}"
+          thumb-mode="aspectFill"
+          thumb-link="/pages/good/good?gid={{ item.gid }}"
+        />
+        <view class="del" slot="right">删除</view>
+      </van-swipe-cell>
+    </block>
+  </van-tab>
+  <van-tab title="商家">
+    <block wx:for="{{ shopData }}">
+      <van-swipe-cell right-width="{{ 65 }}" data-shopid="{{ item.shopid }}" async-close bind:close="onSwipeCellShop">
+        <van-card
+          custom-class="bgWhite"
+          title="{{ item.name }}"
+          thumb="{{ item.logo }}"
+          thumb-mode="aspectFill"
+          thumb-link="/pages/shop/shop?shopid={{ item.shopid }}"
+        />
+        <view class="del" slot="right">删除</view>
+      </van-swipe-cell>
+    </block>
+  </van-tab>
+</van-tabs>

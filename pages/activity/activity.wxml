@@ -1,0 +1,18 @@
+<!--pages/activity/activity.wxml-->
+<image src='{{ resData.banner.image }}' class='banner'></image>
+
+<view class='p30'>
+  <van-row gutter="10">
+    <van-col wx:for="{{ resData.goods }}" span="12">
+      <navigator class="item" url="/pages/good/good?gid={{ item.gid }}">
+        <image class="thumb" mode="aspectFill" src="{{ item.g_thumb }}" bindload="imageLoad"></image>
+        <view class='bd'>
+          <view class='text-ellipsis title'>{{ item.g_name }}</view>
+          <view>
+            <text class='price'>¥{{ item.g_xprice }}</text>
+          </view>
+        </view>
+      </navigator>
+    </van-col>
+  </van-row>
+</view>

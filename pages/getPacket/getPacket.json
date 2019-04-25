@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "取件",
+  "usingComponents": {
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-card": "/dist/card/index",
+    "van-button": "/dist/button/index"
+  }
+}

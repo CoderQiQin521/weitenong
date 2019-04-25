@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的快递柜",
+  "usingComponents": {
+    "van-cell": "/dist/cell/index",
+    "van-cell-group": "/dist/cell-group/index",
+    "van-switch": "/dist/switch/index"
+  }
+}

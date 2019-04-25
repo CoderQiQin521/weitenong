@@ -1,0 +1,24 @@
+<!--pages/getPacket/getPacket.wxml-->
+<van-tabs color="#3688FF" active="{{0}}">
+  <van-tab title="待取包裹">
+    <van-card
+      tag="待签收"
+      desc="韵达快递:02-01 09:10:00入柜"
+      title="坚果坚果坚果坚果坚果坚果"
+      thumb="https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg"
+      custom-class="whiteBg"
+    >
+      <view slot="footer">
+        <van-button size="mini">扫码取件</van-button>
+      </view>
+    </van-card>
+  </van-tab>
+  <van-tab title="我取出的">
+    <van-card
+      desc="韵达快递:已签收，签收人..."
+      title="坚果坚果坚果坚果坚果坚果"
+      thumb="https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg"
+      custom-class="whiteBg"
+    />
+  </van-tab>
+</van-tabs>

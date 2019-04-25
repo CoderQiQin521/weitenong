@@ -1,0 +1,24 @@
+/* pages/address/address.wxss */
+.addAdress {
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  background-color: #fff;
+}
+
+.slot {
+  height: 130rpx;
+  line-height: 130rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.set {
+  width: 120rpx;
+  background-color: #07c160;
+}
+
+.del {
+  width: 120rpx;
+  background-color: #f44;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "附近快递柜",
+  "usingComponents": {
+    "van-button": "/dist/button/index"
+  }
+}

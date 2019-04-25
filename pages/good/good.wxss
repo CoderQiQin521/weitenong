@@ -1,0 +1,94 @@
+/* pages/good/good.wxss */
+page {
+  padding-bottom: 100rpx;
+}
+.swiper {
+  height: 750rpx;
+}
+.slide-image {
+  height: 100%;
+}
+
+.good-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+}
+.good-price {
+  margin: 20rpx 0;
+  font-weight: bold;
+  font-size: 15px;
+  color: #FF341F;
+}
+.good-info {
+  font-size: 12px;
+  color: #8C8C8C;
+}
+
+.assess {
+  background-color: #fff;
+}
+
+.shoplogo {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 15rpx;
+}
+
+.nobanner {
+  text-align: center;
+  line-height: 440rpx;
+  font-size: 26px;
+  color: #ccc;
+}
+
+.collect {
+  padding-top: 15rpx;
+  width: 112rpx;
+}
+
+.simage {
+  width: 236rpx;
+  height: 236rpx;
+}
+
+.specItem {
+  display: inline-block;
+  width: 270rpx;
+  height: 46rpx;
+  margin-right: 10rpx;
+  line-height: 46rpx;
+  text-align: center;
+  border: 1rpx solid #F5F5F5;
+  background-color: #F5F5F5;
+}
+.goodinfohd {
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+
+.on {
+  border-color: #FF4E00;
+  color: #FF4E00;
+  background-color: #fff;
+}
+.tb {
+  margin: 30rpx 0;
+}
+.goodinfosheet {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.g_name {
+  margin-bottom: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+.s_xprice {
+  color: #FF3824;
+}
+
+.goods-action {
+  z-index: 99!important;
+}
