@@ -19,7 +19,9 @@ const Api = {
   express: {
     status: ApiUrl + 'express/express_status',
     changeStatus: ApiUrl + 'express/change_status',
-    unlock: ApiUrl + 'user_unlock_success'
+    unlock: ApiUrl + 'user_unlock_success',
+    user_success: ApiUrl + 'express/user_unlock_success',
+    other_success: ApiUrl + 'express/other_unlock_success'
   }
 }
 

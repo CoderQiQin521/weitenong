@@ -44,7 +44,7 @@ Page({
     http.request('GET', api.Api.express.status).then(res => {
       if (res.error_code === 0) {
         console.log(res.data);
-        this.setData({ resData: res.data, status: res.data.status ? 1 : 0 })
+        this.setData({ resData: res.data, status: res.data.status})
       }
       // else {
       //   wx.showToast({

@@ -51,14 +51,17 @@ Page({
     http.request('POST', api.ApiExpressUserype, { code: code }).then(res => {
       if (res.error_code === 0) { // 如果是业主
         // 业主下单 express/save
-        http.request('GET', api.ApiExpressSave).then(res => {
+        http.request('GET', api.ApiExpressSave, {code}).then(res => {
           if (res.error_code === 0) {
             let did = res.data.did
             // 业主开锁 express/user_unlock
             http.request('POST', api.ApiExpressUserLock, { did, code: code }).then(res => {
               if (res.error_code === 0) {  // 可以开锁
+                //开锁后回调
+                http.request('POST', api.Api.express.user_success, {did, status: 1}).then(res => {
+
+                })
                 let bindData = res.data;
-                console.log('bindData: ', bindData);
                 that.setData({ bindData, firm: res.data.id })
                 that.diffSys();
               }else {
@@ -93,6 +96,10 @@ Page({
                     })
                     return;
                   }
+                  //开锁后回调
+                  http.request('POST', api.Api.express.other_success, {did, status: 1}).then(res => {
+                    
+                  })
                   let bindData = res.data;
                   that.setData({ bindData, firm: res.data.id })
                   that.diffSys();
@@ -108,6 +115,10 @@ Page({
                         let bindData = res.data;
                         that.setData({ bindData, firm: res.data.id })
                         that.diffSys();
+                        //开锁后回调
+                        http.request('POST', api.Api.express.other_success, {did, status: 1}).then(res => {
+                          
+                        })
                       }else {
                         wx.showToast({
                           title: res.msg,
@@ -427,7 +438,6 @@ Page({
   connectTO: function (deviceId, serviceId, characteristicId) {
     let that = this,
         sys  = this.data.sys;
-        console.log('deviceId: ', deviceId);
     wx.createBLEConnection({
       deviceId: deviceId,
       success : function (res) {
@@ -439,7 +449,8 @@ Page({
           that.getBLEDeviceServices(deviceId)
         }else if(sys === 'android') {
           // // 获取服务id
-          that.notifyBLECharacteristicValueChange(deviceId, serviceId, characteristicId)
+          that.getYjToken()
+          // that.notifyBLECharacteristicValueChange(deviceId, serviceId, characteristicId)
         }
       },
       fail: function (err) {
