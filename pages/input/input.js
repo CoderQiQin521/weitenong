@@ -62,6 +62,7 @@ Page({
 
                 })
                 let bindData = res.data;
+                console.log('bindData: ', bindData);
                 that.setData({ bindData, firm: res.data.id })
                 that.diffSys();
               }else {
@@ -110,7 +111,6 @@ Page({
                   pay.pay(res).then(res => {
                     // 其他人开锁 express/other_unlock
                     http.request('POST', api.ApiExpressOtherUnlock, { did, code }).then(res => {
-                      console.log(res);
                       if(res.error_code === 0) {
                         let bindData = res.data;
                         that.setData({ bindData, firm: res.data.id })
@@ -206,11 +206,12 @@ Page({
       安卓不需要匹配直接连接,ios需要先蓝牙匹配
       在连接后要不要再次获取设备id 和 服务uuid
     */
-    if (sys === 'ios') {
-      this.iosPhone();
-    }else if(sys === 'android') {
-      this.androidPhone();
-    }
+    // if (sys === 'ios') {
+    //   this.iosPhone();
+    // }else if(sys === 'android') {
+    //   this.androidPhone();
+    // }
+    this.iosPhone();
   },
   iosPhone() {
     /*
@@ -243,30 +244,53 @@ Page({
   onBluetoothDeviceFound() {
     let that     = this,
         bindData = this.data.bindData,
+        sys = this.data.sys,
         firm     = this.data.firm;
 
     wx.onBluetoothDeviceFound(function(res) {
       let advertisData = null;  //ios下通过设备advertisData获取设备id
-
+      
       res.devices.forEach(item => {
-        if(firm === 1) {
-          advertisData = utils.arrayBufferToHexString(item.advertisData).substr(4,12);
-          if(bindData.deviceId.replace(/:/g,'') === advertisData) {
-            bindData.deviceId = item.deviceId;
-            that.setData({ bindData })
-            that.connectTO(item.deviceId, bindData.serviceId, bindData.readId);
-            wx.stopBluetoothDevicesDiscovery();
-          }
-        }else if(firm === 2) {
-          advertisData = utils.ab2hex(new Uint8Array(item.advertisData, 0)).slice(2).join(':').toUpperCase();
-          if(bindData.deviceId === advertisData) {
-            bindData.deviceId = item.deviceId;
-            that.setData({ bindData })
-            that.connectTO(item.deviceId, bindData.serviceId, bindData.readId);
+        if(item.advertisData) {
+          advertisData = utils.arrayBufferToHexString(item.advertisData)
+          var mac = advertisData.slice(2,8).join(':').toUpperCase()
+          var codeArr = advertisData.slice(8, 21);
+          var code = ''
+          
+          // ascii编码
+          codeArr.forEach(item => {
+            code += String.fromCharCode('0x' + item)
+          })
+          
+          if(bindData.code === code) {
+            bindData.deviceId = mac
+            that.setData({
+              bindData
+            })
+            if(sys === 'ios') {
+              that.connectTO(item.deviceId, bindData.serviceId, bindData.readId);
+            }else if(sys === 'android') {
+              that.connectTO(mac, bindData.serviceId, bindData.readId);
+            }
             wx.stopBluetoothDevicesDiscovery();
           }
         }
       })
+      
+        
+
+        // if(firm === 1) {
+          
+        // }else if(firm === 2) {
+        //   advertisData = utils.ab2hex(new Uint8Array(item.advertisData, 0)).slice(2).join(':').toUpperCase();
+        //   if(bindData.deviceId === advertisData) {
+        //     bindData.deviceId = item.deviceId;
+        //     that.setData({ bindData })
+        //     that.connectTO(item.deviceId, bindData.serviceId, bindData.readId);
+        //     wx.stopBluetoothDevicesDiscovery();
+        //   }
+        // }
+      
     });
 
     // 超时后,自动关闭 
@@ -282,7 +306,6 @@ Page({
       deviceId: deviceId,
       success : function (res) {
         let serviceId = res.services[0].uuid;
-
         that.getBLEDeviceCharacteristics(deviceId, serviceId);
       }
     })
@@ -409,11 +432,11 @@ Page({
         bindData = this.data.bindData,
         sendData = null,
         that     = this;
-    if(firm === 1) {
       sendData = this.asddLock(sData, btRandrom)
-    }else {
-      sendData = this.yijiaProcessing(sData)
-    }
+    // if(firm === 1) {
+    // }else {
+    //   sendData = this.yijiaProcessing(sData)
+    // }
 
     //TODO: 封装写入函数
     wx.writeBLECharacteristicValue({
@@ -423,19 +446,17 @@ Page({
       value           : sendData,
       success(res) {
         console.log('写入成功',res);
-        that.setData({ isConnect: true })
-
-        
+        that.setData({ isConnect: true });
       },
       fail(err) {
         // 10007 当前特征值不支持此操作
         console.log('写入失败',err);
-        
       }
     })
   },
   // 连接设备
   connectTO: function (deviceId, serviceId, characteristicId) {
+    console.log('deviceId: ', deviceId);
     let that = this,
         sys  = this.data.sys;
     wx.createBLEConnection({
@@ -444,16 +465,18 @@ Page({
         that.setData({
           isConnect: true
         })
+        console.log('sys: ', sys);
         if(sys === 'ios') {
           // 获取服务id
           that.getBLEDeviceServices(deviceId)
         }else if(sys === 'android') {
           // // 获取服务id
-          that.getYjToken()
-          // that.notifyBLECharacteristicValueChange(deviceId, serviceId, characteristicId)
+          // that.getYjToken()
+          that.notifyBLECharacteristicValueChange(deviceId, serviceId, characteristicId)
         }
       },
       fail: function (err) {
+        console.log('err: ', err);
         wx.showToast({
           title: '连接设备失败',
           icon : 'none'
@@ -466,7 +489,6 @@ Page({
   notifyBLECharacteristicValueChange(deviceId, serviceId, characteristicId) {
     let that = this,
         firm = this.data.firm;  //厂家
-
     if(firm === 1) {
       wx.notifyBLECharacteristicValueChange({
         state           : true,
@@ -483,7 +505,7 @@ Page({
               if (tmp.substring(0, 3) == 'KEY') 
               { 
                 let btRandrom = char6value.subarray(3);
-                that.writeBLECharacteristicValue(config.DIRECTIVE.asdd.open, btRandrom);
+                that.asddopen(config.DIRECTIVE.asdd.open, btRandrom, deviceId, serviceId, characteristicId);
               }else {
                 if (tmp.toUpperCase() == "UNLOCK") {
                   //开锁成功
@@ -525,6 +547,24 @@ Page({
         sendData  = enDataBuf.buffer;
   }
   return sendData;
+},
+asddopen(sData, btRandrom, deviceId, serviceId, writeId) {
+  let sendData = this.asddLock(sData, btRandrom),
+  that = this;
+  wx.writeBLECharacteristicValue({
+    deviceId        : deviceId,
+    serviceId       : serviceId,
+    characteristicId: writeId,
+    value           : sendData,
+    success(res) {
+      console.log('写入成功',res);
+      that.setData({ isConnect: true });
+    },
+    fail(err) {
+      // 10007 当前特征值不支持此操作
+      console.log('写入失败',err);
+    }
+  })
 },
   /**
    * 生命周期函数--监听页面加载

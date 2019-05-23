@@ -42,14 +42,17 @@ const arrayBufferToHexString = (buffer) => {
   }
   let dataView = new DataView(buffer)
 
-  let hexStr = '';
+  let hexStr = [];
   for (let i = 0; i < dataView.byteLength; i++) {
     let str = dataView.getUint8(i);
-    let hex = (str & 0xff).toString(16);
-    hex = (hex.length === 1) ? '0' + hex : hex;
-    hexStr += hex;
+    // let hex = (str & 0xff).toString(16);
+    let hex = str.toString(16);
+    // hex = (hex.length === 1) ? '0' + hex : hex;
+    // hexStr += hex;
+    hexStr.push(hex)
   }
-  return hexStr.toUpperCase();
+  // return hexStr.toUpperCase();
+  return hexStr;
 }
 
 let reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
